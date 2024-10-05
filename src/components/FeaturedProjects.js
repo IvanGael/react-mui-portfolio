@@ -71,7 +71,7 @@ const FeaturedProjects = () => {
                                     alt={project.title}
                                 />
                                 <CardContent sx={{ flexGrow: 1 }} fontSize={18}>
-                                    <Typography gutterBottom variant="h6" component="h3">
+                                    <Typography gutterBottom fontWeight={'bold'} variant="h6" component="h3">
                                         {project.title}
                                     </Typography>
                                     <Typography fontSize={14}>
@@ -80,7 +80,7 @@ const FeaturedProjects = () => {
                                 </CardContent>
                                 <CardActions sx={{ display: 'flex', justifyContent: 'end' }}>
                                     <Button
-                                        variant='outlined'
+                                        variant='contained'
                                         color="info"
                                         href={project.github}
                                         target='_blank'
