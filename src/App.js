@@ -11,9 +11,9 @@ import GetTheme from "./theme/CustomTheme";
 function App() {
   const [mode, setMode] = useState('light');
 
-  // const toggleTheme = () => {
-  //   setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
-  // };
+  const toggleTheme = () => {
+    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+  };
 
   const theme = useMemo(
     () =>
@@ -25,7 +25,7 @@ function App() {
     <ThemeProvider theme={theme}>
       {/* <CssBaseline /> */}
       <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-        <Header />
+        <Header mode={mode} toggleTheme={toggleTheme}/>
         <Box component="main" sx={{ flexGrow: 1, pt: { xs: 7, sm: 8 } }}>
           <Toolbar /> {/* This empty Toolbar acts as a spacer */}
           <Hero />

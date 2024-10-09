@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Typography, Box } from '@mui/material';
-import BgHero1Img from '../assets/bg_hero1_1.png';
+import { Container, Typography, Box, Button } from '@mui/material';
+import BgHero1Img from '../assets/spiral.png';
+import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 
 const Hero = () => {
     return (
@@ -14,11 +15,13 @@ const Hero = () => {
                     minHeight: '100vh',
                     display: 'flex',
                     alignItems: 'center',
+                    justifyContent: 'center',
+                    position: 'relative'
                 }}
             >
                 <Container maxWidth="md">
                     <Box sx={{
-                        backgroundColor: 'white',
+                        backgroundColor: 'rgba(255, 255, 255, 0.8)',
                         p: 4, borderRadius: 2,
                         borderStyle: 'dotted',
                         borderColor: 'black',
@@ -29,38 +32,55 @@ const Hero = () => {
                             component="h1"
                             variant="h5"
                             align="center"
-                            sx={{ color: 'black' }}
+                            sx={{ color: 'black', letterSpacing: 2 }}
                             gutterBottom
                         >
                             Ivan APEDO
                         </Typography>
-                        <Typography fontSize={16} variant="h6" align="center" sx={{ color: 'black' }} paragraph>
-                            ML & Computer Vision | Web & Mobile Apps
+                        <Typography fontSize={18} variant="h6" align="center" sx={{ color: 'black' }} paragraph>
+                            Web & Mobile Apps | Computer Vision
                         </Typography>
+
+                        {/* <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center', gap: 2 }}>
+                            <Button variant="contained" color="primary" sx={{ borderRadius: 50, px: 4, py: 1.5 }}>
+                                <Typography >L</Typography>
+                                <Typography sx={{ textTransform: 'lowercase' }}>earn More</Typography>
+                            </Button>
+                            <Button variant="outlined" color="secondary" sx={{ borderRadius: 50, px: 4, py: 1.5 }}>
+                                <Typography sx={{ textTransform: 'lowercase' }}>Get in Touch</Typography>
+                            </Button>
+                        </Box> */}
+
                         <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 2 }}>
                             <InfoSection title="🔹 Who I am" items={[
-                                "Mobile Developer",
+                                "Web & Mobile Developer",
                                 "Computer Vision Developer",
-                                "Computer Vision & Machine Learning Enthusiast",
-                                "Member of communities",
+                                "ML & Deep Learning Enthusiast",
+                                "Community Contributor",
                             ]} />
                             <InfoSection title="🔹 What I do" items={[
-                                "Mobile applications",
-                                "Computer Vision based AI Stuffs",
-                                "Contribution to open source projects",
-                                "I am fluent in French, a little bit in English and some notions in Japanese"
+                                "Web & Mobile apps",
+                                "AI-driven Computer Vision",
+                                "Open Source Projects",
+                                "Languages: French, English, Japanese (Basics)"
                             ]} />
                             <InfoSection title="🔹 Where I do it" items={[
-                                "I live in Nice, France",
-                                "I work remotely in part time",
+                                "Based in Nice, France",
+                                "Remote, Part-Time"
                             ]} />
-                            <InfoSection title="🔹 When I do" items={[
-                                "Monday to Friday",
-                                "All days looking for the balance between work and personal life",
+                            <InfoSection title="🔹 When I do it" items={[
+                                "Weekdays, 9-5",
+                                "Balancing Work & Life"
                             ]} />
                         </Box>
                     </Box>
                 </Container>
+
+                <Box sx={{ position: 'absolute', bottom: 16, left: '50%', transform: 'translateX(-50%)' }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', mt: 1 }}>
+                        <ExpandCircleDownIcon fontSize="large" />
+                    </Box>
+                </Box>
             </Box>
         </div>
     );

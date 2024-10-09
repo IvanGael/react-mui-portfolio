@@ -17,8 +17,8 @@ const projects = [
         id: 2,
         title: 'Websocket Chat',
         description: 'A real-time chat app built with React with Go backend using WebSocket for handling communication',
-        image: 'https://i.ibb.co/HBNbYnx/373313910-895a672d-d97b-4ec7-a0c3-e3e4086e310c.png',
-        github: 'https://github.com/IvanGael/Websocket-chat-frontend',
+        image: 'https://i.ibb.co/PWMdst2/Screenshot-2024-10-09-131528.png',
+        github: 'https://github.com/IvanGael',
         live: 'https://chatyier.netlify.app'
     },
     {

@@ -20,7 +20,7 @@ const Skills = () => {
   return (
     <Box sx={{ bgcolor: 'background.paper', py: 8 }}>
       <Container maxWidth="lg">
-        <Typography variant="h4" align="center" gutterBottom>
+        <Typography color="text.secondary" variant="h4" align="center" gutterBottom>
           Skills
         </Typography>
         <Box sx={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 1 }}>

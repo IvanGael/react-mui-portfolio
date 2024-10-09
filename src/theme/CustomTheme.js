@@ -5,9 +5,13 @@ const GetTheme = (mode) => {
         palette: {
             primary: {
                 main: '#04BBFF',
+                light: '#04BBFF',
+                dark: '#04BBFF',
             },
             secondary: {
                 main: '#FE277E',
+                light: '#FFFFFF',
+                dark: '#FFFFFF',
             },
             background: {
                 default: '#692FA0'

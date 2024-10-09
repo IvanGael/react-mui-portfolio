@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Link, IconButton } from '@mui/material';
+import { Box, Typography, Link, IconButton, Divider } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -14,6 +14,7 @@ const Footer = () => {
       }} 
       component="footer"
     >
+      <Divider sx={{mb: 4}}/>
       <Typography variant="body2" color="text.secondary" align="center">
         © {new Date().getFullYear()} Ivan APEDO. All rights reserved.
       </Typography>
@@ -37,7 +38,7 @@ const Footer = () => {
         }}
       >
         <IconButton 
-          color="inherit" 
+          color="text.secondary"
           aria-label="GitHub" 
           component="a" 
           href="https://github.com/IvanGael"
@@ -47,7 +48,7 @@ const Footer = () => {
           <GitHubIcon />
         </IconButton>
         <IconButton 
-          color="inherit" 
+          color="text.secondary"
           aria-label="LinkedIn" 
           component="a" 
           href="https://www.linkedin.com/in/ivan-apedo"
@@ -57,7 +58,7 @@ const Footer = () => {
           <LinkedInIcon />
         </IconButton>
         <IconButton 
-          color="inherit" 
+          color="text.secondary"
           aria-label="Twitter" 
           component="a" 
           href="https://x.com/IvanGal19"
