@@ -1,18 +1,20 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Button, IconButton, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, IconButton, Box, useTheme } from '@mui/material';
 import CodingImg from '../assets/coding.png';
 import MeImg from '../assets/me.png';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 const Header = ({mode, toggleTheme}) => {
+    const appTheme = useTheme();
+
     return (
         <AppBar
             position="fixed"
             sx={{
                 zIndex: (theme) => theme.zIndex.drawer + 1,
                 height: '40px',
-                background: 'linear-gradient(-45deg, #04BBFF, #7C80FC, #04BBFF, #7C7AED)',
+                background: `linear-gradient(-45deg, ${appTheme.palette.mode === 'dark' ? appTheme.palette.primary : appTheme.palette.primary.main}, #211A44, #04BBFF, #7C7AED)`,
                 backgroundSize: '400% 400%',
                 animation: 'gradient 15s ease infinite',
                 '@keyframes gradient': {
@@ -34,8 +36,9 @@ const Header = ({mode, toggleTheme}) => {
                 },
             }}>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: 'white' }}>
-                    <Button href='#'>
-                        <img src={MeImg} alt='CodingImg' style={{ objectFit: 'contain', width: '35px', height: '35px', display: 'flex' }} />
+                    <Button sx={{ color: 'white', textTransform: 'lowercase' }} onClick={() => window.location.href = ""}>
+                        {/* <img src={MeImg} alt='CodingImg' style={{ objectFit: 'contain', width: '35px', height: '35px', display: 'flex' }} /> */}
+                        <code>func main(){}</code>
                     </Button>
                 </Typography>
                 <Box>

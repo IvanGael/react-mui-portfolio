@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Container, Grid, Card, CardContent, CardMedia, CardActions, Typography, Button } from '@mui/material';
 import StreamIcon from '@mui/icons-material/Stream';
 import DataObjectIcon from '@mui/icons-material/DataObject';
@@ -53,9 +53,32 @@ const projects = [
     },
 ];
 
-const FeaturedProjects = () => {
+const FeaturedProjects = ({ onEnter }) => {
+    const ref = useRef();
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    onEnter();
+                }
+            },
+            { threshold: 0.5 }
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => {
+            if (ref.current) {
+                observer.unobserve(ref.current);
+            }
+        };
+    }, [onEnter]);
+
     return (
-        <div id='projects'>
+        <div id='projects' ref={ref}>
             <Container sx={{ py: 8 }} maxWidth="md">
                 <Typography variant="h4" align="center" gutterBottom>
                     Featured Projects

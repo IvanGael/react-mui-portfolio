@@ -1,11 +1,36 @@
-import React from 'react';
-import { Container, Typography, Box, Button } from '@mui/material';
+import React, { useRef, useEffect } from 'react';
+import { Container, Typography, Box } from '@mui/material';
 import BgHero1Img from '../assets/spiral.png';
+import MeImg from '../assets/me.png';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 
-const Hero = () => {
+
+function Hero({ onEnter }) {
+    const ref = useRef();
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    onEnter();
+                }
+            },
+            { threshold: 0.5 }
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => {
+            if (ref.current) {
+                observer.unobserve(ref.current);
+            }
+        };
+    }, [onEnter]);
+
     return (
-        <div id='about'>
+        <div id='about' ref={ref}>
             <Box
                 sx={{
                     backgroundImage: `url(${BgHero1Img})`,
@@ -42,14 +67,14 @@ const Hero = () => {
                         </Typography>
 
                         {/* <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center', gap: 2 }}>
-                            <Button variant="contained" color="primary" sx={{ borderRadius: 50, px: 4, py: 1.5 }}>
-                                <Typography >L</Typography>
-                                <Typography sx={{ textTransform: 'lowercase' }}>earn More</Typography>
-                            </Button>
-                            <Button variant="outlined" color="secondary" sx={{ borderRadius: 50, px: 4, py: 1.5 }}>
-                                <Typography sx={{ textTransform: 'lowercase' }}>Get in Touch</Typography>
-                            </Button>
-                        </Box> */}
+                      <Button variant="contained" color="primary" sx={{ borderRadius: 50, px: 4, py: 1.5 }}>
+                          <Typography >L</Typography>
+                          <Typography sx={{ textTransform: 'lowercase' }}>earn More</Typography>
+                      </Button>
+                      <Button variant="outlined" color="secondary" sx={{ borderRadius: 50, px: 4, py: 1.5 }}>
+                          <Typography sx={{ textTransform: 'lowercase' }}>Get in Touch</Typography>
+                      </Button>
+                  </Box> */}
 
                         <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 2 }}>
                             <InfoSection title="🔹 Who I am" items={[
@@ -84,7 +109,7 @@ const Hero = () => {
             </Box>
         </div>
     );
-};
+}
 
 const InfoSection = ({ title, items }) => (
     <Box sx={{ width: '45%', mb: 4 }}>
