@@ -4,8 +4,9 @@ import CodingImg from '../assets/coding.png';
 import MeImg from '../assets/me.png';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import TypewriterEffect from './TypewriterEffect';
 
-const Header = ({mode, toggleTheme}) => {
+const Header = ({ mode, toggleTheme }) => {
     const appTheme = useTheme();
 
     return (
@@ -37,8 +38,12 @@ const Header = ({mode, toggleTheme}) => {
             }}>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: 'white' }}>
                     <Button sx={{ color: 'white', textTransform: 'lowercase' }} onClick={() => window.location.href = ""}>
-                        {/* <img src={MeImg} alt='CodingImg' style={{ objectFit: 'contain', width: '35px', height: '35px', display: 'flex' }} /> */}
-                        <code>func main(){}</code>
+                        <code>
+                            <TypewriterEffect
+                                // text="func main() {}"
+                                strings={['func main() {}', 'Hello, World!']}
+                            />
+                        </code>
                     </Button>
                 </Typography>
                 <Box>

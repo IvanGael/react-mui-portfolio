@@ -8,9 +8,11 @@ import Footer from './components/Footer';
 import LottieAnimation from './components/LottieAnimation';
 import GetTheme from "./theme/CustomTheme";
 
+import ObserverWrapper from "./components/ObserverWrapper";
+
 import heroAnimation from './assets/Ah.json';
-import projectsAnimation from './assets/projects.json';
-import skillsAnimation from './assets/skills.json';
+import projectsAnimation from './assets/Ahee.json';
+import skillsAnimation from './assets/Aheee.json';
 
 function App() {
   const [mode, setMode] = useState('light');
@@ -47,9 +49,9 @@ function App() {
           <Box sx={{ position: 'fixed', top: '80px', right: '20px', width: '150px', height: '150px', zIndex: 1000 }}>
             <LottieAnimation animationData={getCurrentAnimation()} />
           </Box>
-          <Hero onEnter={() => setCurrentSection('hero')} />
-          <FeaturedProjects onEnter={() => setCurrentSection('projects')} />
-          <Skills onEnter={() => setCurrentSection('skills')} />
+          <ObserverWrapper children={<Hero />} onEnter={() => setCurrentSection('hero')}/>
+          <ObserverWrapper children={<FeaturedProjects />} onEnter={() => setCurrentSection('projects')}/>
+          <ObserverWrapper children={<Skills />} onEnter={() => setCurrentSection('skills')}/>
         </Box>
         <Footer />
       </Box>

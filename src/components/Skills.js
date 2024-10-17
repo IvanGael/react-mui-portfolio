@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { Container, Typography, Box, Chip } from '@mui/material';
 
 const skills = [
@@ -12,37 +12,15 @@ const skills = [
   'Tensorflow',
   'PyTorch',
   'Mediapipe',
-  'CI/CD: Github Actions',
-  'Git'
+  'CI/CD',
+  'Git',
+  'Docker'
 ];
 
 const Skills = ({ onEnter }) => {
-  const ref = useRef();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          onEnter();
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, [onEnter]);
-
 
   return (
-    <Box sx={{ bgcolor: 'background.paper', py: 8 }} ref={ref}>
+    <Box sx={{ bgcolor: 'background.paper', py: 8 }}>
       <Container maxWidth="lg">
         <Typography color="text.secondary" variant="h4" align="center" gutterBottom>
           Skills

@@ -1,36 +1,14 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { Container, Typography, Box } from '@mui/material';
 import BgHero1Img from '../assets/spiral.png';
 import MeImg from '../assets/me.png';
 import ExpandCircleDownIcon from '@mui/icons-material/ExpandCircleDown';
 
 
-function Hero({ onEnter }) {
-    const ref = useRef();
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    onEnter();
-                }
-            },
-            { threshold: 0.5 }
-        );
-
-        if (ref.current) {
-            observer.observe(ref.current);
-        }
-
-        return () => {
-            if (ref.current) {
-                observer.unobserve(ref.current);
-            }
-        };
-    }, [onEnter]);
+function Hero() {
 
     return (
-        <div id='about' ref={ref}>
+        <div id='about' >
             <Box
                 sx={{
                     backgroundImage: `url(${BgHero1Img})`,
@@ -60,10 +38,10 @@ function Hero({ onEnter }) {
                             sx={{ color: 'black', letterSpacing: 2 }}
                             gutterBottom
                         >
-                            Ivan APEDO
+                            Hey There👋
                         </Typography>
                         <Typography fontSize={18} variant="h6" align="center" sx={{ color: 'black' }} paragraph>
-                            Web & Mobile Apps | Computer Vision
+                        <code>{`My name is Ivan APEDO`}</code>
                         </Typography>
 
                         {/* <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center', gap: 2 }}>
@@ -77,23 +55,23 @@ function Hero({ onEnter }) {
                   </Box> */}
 
                         <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 2 }}>
-                            <InfoSection title="🔹 Who I am" items={[
+                            <InfoSection title="Who I am" items={[
                                 "Web & Mobile Developer",
-                                "Computer Vision Developer",
+                                "Computer Vision Engineer",
                                 "ML & Deep Learning Enthusiast",
-                                "Community Contributor",
+                                "Community Member",
                             ]} />
-                            <InfoSection title="🔹 What I do" items={[
+                            <InfoSection title="What I do" items={[
                                 "Web & Mobile apps",
-                                "AI-driven Computer Vision",
+                                "Computer Vision based solutions",
                                 "Open Source Projects",
                                 "Languages: French, English, Japanese (Basics)"
                             ]} />
-                            <InfoSection title="🔹 Where I do it" items={[
+                            <InfoSection title="Where I do it" items={[
                                 "Based in Nice, France",
                                 "Remote, Part-Time"
                             ]} />
-                            <InfoSection title="🔹 When I do it" items={[
+                            <InfoSection title="When I do it" items={[
                                 "Weekdays, 9-5",
                                 "Balancing Work & Life"
                             ]} />
@@ -113,8 +91,8 @@ function Hero({ onEnter }) {
 
 const InfoSection = ({ title, items }) => (
     <Box sx={{ width: '45%', mb: 4 }}>
-        <Typography variant="h6" fontWeight={'bold'} sx={{ color: 'black' }} gutterBottom>
-            {title}
+        <Typography color='primary' variant="h6" fontWeight={'bold'} gutterBottom>
+        🔹{title}
         </Typography>
         <ul style={{ color: 'black', paddingLeft: '20px' }}>
             {items.map((item, index) => (
